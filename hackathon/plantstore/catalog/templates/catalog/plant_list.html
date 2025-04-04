@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Gallery</title>
+</head>
+<body>
+    <h1>All Plants</h1>
+    {% for plant in plants %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+            <h2>{{ plant.name }}</h2>
+            <img src="{{ plant.thumbnail.url }}" width="200">
+            <p>{{ plant.description|truncatewords:20 }}</p>
+            <a href="{% url 'plant_detail' plant.pk %}">View 360°</a>
+        </div>
+    {% endfor %}
+</body>
+</html>
